@@ -5,8 +5,8 @@ const User = require('../models/User');
 const DailyLog = require('../models/DailyLog');
 
 const instance = new Razorpay({
-    key_id: process.env.RAZORPAY_KEY_ID,
-    key_secret: process.env.RAZORPAY_KEY_SECRET,
+    key_id: process.env.RAZORPAY_KEY_ID || 'rzp_test_placeholder_key',
+    key_secret: process.env.RAZORPAY_KEY_SECRET || 'placeholder_secret',
 });
 
 exports.createOrder = async (req, res) => {
@@ -22,7 +22,7 @@ exports.createOrder = async (req, res) => {
         res.json({
             id: order.id,
             amount: order.amount,
-            key: process.env.RAZORPAY_KEY_ID
+            key: process.env.RAZORPAY_KEY_ID || 'rzp_test_placeholder_key'
         });
     } catch (error) {
         console.error('Error creating order:', error);

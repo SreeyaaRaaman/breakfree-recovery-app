@@ -1,0 +1,34 @@
+# ⚠️ NOTE: This is a Node.js project!
+# In the Node.js ecosystem, the equivalent of Python's "requirements.txt" is the "package.json" file.
+# You already have package.json files automatically created in both your frontend and backend folders!
+# 
+# To install all of these automatically, you simply run: `npm install`
+
+# -------------------------
+# FRONTEND DEPENDENCIES:
+# (Installed via: cd frontend && npm install)
+# -------------------------
+react
+react-dom
+react-router-dom
+axios
+framer-motion
+chart.js
+react-chartjs-2
+tailwindcss
+@tailwindcss/vite
+@heroicons/react
+jwt-decode
+
+# -------------------------
+# BACKEND DEPENDENCIES:
+# (Installed via: cd backend && npm install)
+# -------------------------
+express
+sqlite3
+sequelize
+cors
+dotenv
+bcrypt
+jsonwebtoken
+razorpay

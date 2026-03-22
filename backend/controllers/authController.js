@@ -26,7 +26,7 @@ exports.register = async (req, res) => {
         });
 
         const payload = { user: { id: user.id } };
-        jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '5 days' }, (err, token) => {
+        jwt.sign(payload, process.env.JWT_SECRET || 'fallback_secret_dev', { expiresIn: '5 days' }, (err, token) => {
             if (err) throw err;
             res.json({ token, user: { id: user.id, name, email, addictionType, goalDuration, startDate, goalEndDate } });
         });
@@ -46,7 +46,7 @@ exports.login = async (req, res) => {
         if (!isMatch) return res.status(400).json({ msg: 'Invalid Credentials' });
 
         const payload = { user: { id: user.id } };
-        jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '5 days' }, (err, token) => {
+        jwt.sign(payload, process.env.JWT_SECRET || 'fallback_secret_dev', { expiresIn: '5 days' }, (err, token) => {
             if (err) throw err;
             res.json({ token, user: { id: user.id, name: user.name, email: user.email, addictionType: user.addictionType, goalDuration: user.goalDuration, startDate: user.startDate, goalEndDate: user.goalEndDate } });
         });
